@@ -5,23 +5,21 @@ public class Enemy : MonoBehaviour
 {
 
     private float health;
+    private float timeBetweenAttack = 3f;
+    private bool canAttack = false;
+
     //test version
     public GameObject bullet;
-    public GameObject gun;
-
-
-    public bool canAttack = false;
+    public GameObject gun;  
     public void Attack()
     {
         if(!canAttack)
         {
             canAttack = true;
             Instantiate(bullet, gun.transform.position, Quaternion.identity);
-            Invoke(nameof(ResetAttack), 5f);
+            Invoke(nameof(ResetAttack), timeBetweenAttack);
         }
     }
-
-
     private void ResetAttack()
     {
         canAttack = false;
