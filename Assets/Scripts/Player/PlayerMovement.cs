@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     [SerializeField] private Player player;
     [SerializeField] private TimeManager timeManager;
+    [SerializeField] private float walkingSpeed = 7.5f;
 
     private CharacterController characterController;
     private float lookSpeed = 2.0f;
@@ -13,14 +14,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
     private bool canMove = true;
+    
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-
-        // Lock cursor
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     void Update()
@@ -29,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
-        float curSpeedX = player.walkingSpeed * Input.GetAxis("Vertical");
-        float curSpeedY = player.walkingSpeed * Input.GetAxis("Horizontal");
+        float curSpeedX = walkingSpeed * Input.GetAxis("Vertical");
+        float curSpeedY = walkingSpeed * Input.GetAxis("Horizontal");
 
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
