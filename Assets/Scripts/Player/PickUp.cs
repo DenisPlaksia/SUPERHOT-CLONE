@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    private RaycastHit ray;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,19 +13,6 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider != null )
-                {
-                    Debug.Log(hit.collider.tag);
-                    //Debug.Log(hit.distance);
-                }
-            }
-        }
+        
     }
 }
