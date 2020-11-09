@@ -1,8 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float walkingSpeed = 7.5f;
+    private float health = 100f;
+
+    public void GetDamage(float damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+            DestroyPlayer();
+    }
+
+    private void DestroyPlayer() => Destroy(gameObject);
 }
