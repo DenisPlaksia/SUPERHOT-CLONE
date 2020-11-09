@@ -5,7 +5,7 @@ public class Enemy : MonoBehaviour
 {
 
     private float health;
-    private float timeBetweenAttack = 3f;
+    private float timeBetweenAttack = 1.5f;
     private bool canAttack = false;
 
     //test version
@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
         if(!canAttack)
         {
             canAttack = true;
-            Instantiate(bullet, gun.transform.position, Quaternion.identity);
+            Instantiate(bullet, gun.transform.position, transform.rotation);
             Invoke(nameof(ResetAttack), timeBetweenAttack);
         }
     }

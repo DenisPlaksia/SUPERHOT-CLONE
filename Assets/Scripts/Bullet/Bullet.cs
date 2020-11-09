@@ -4,11 +4,11 @@
 public class Bullet : MonoBehaviour
 {
     private Rigidbody rb;
-    private float force = 1000f;
+    private float force = 25f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * force * Time.deltaTime);
+        rb.AddForce(Vector3.right * force,ForceMode.Impulse);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -16,10 +16,6 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.GetComponent<Player>() != null)
         {
             collision.gameObject.GetComponent<Player>().GetDamage(100f);
-        }
-        else
-        {
-            Destroy(gameObject,100f);
         }
     }
 }
