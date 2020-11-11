@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14998
+  m_Name: pb_Mesh15000
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -537,6 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f523e1a5e7f8124a9e13c3fd64837da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapun: {fileID: 1101514373}
 --- !u!114 &572474862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,6 +650,7 @@ GameObject:
   - component: {fileID: 698246071}
   - component: {fileID: 698246070}
   - component: {fileID: 698246069}
+  - component: {fileID: 698246072}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -733,6 +735,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698246067}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &698246072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698246067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bb16504f1ace342b58dc8154ada4b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountAmmo: 0
+  bullet: {fileID: 240762535091401400, guid: c4cf40474cd7df047bad5efba52b5098, type: 3}
+  point: {fileID: 1757962289}
 --- !u!1 &748865380
 GameObject:
   m_ObjectHideFlags: 0
@@ -4204,8 +4221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ddc6d9f5b31eb4398cdce5fa404013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 240762535091401400, guid: c4cf40474cd7df047bad5efba52b5098, type: 3}
-  gun: {fileID: 1757962289}
+  weapun: {fileID: 698246072}
 --- !u!114 &1495451081
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
+/* Denis Plaksia */
 public class Weapun : MonoBehaviour
 {
     public int amountAmmo;
-
     public static Ray ray1;
     //test variant
     public GameObject bullet;
@@ -14,24 +14,13 @@ public class Weapun : MonoBehaviour
         amountAmmo = Random.Range(1, 16);
     }
 
-    private void Update()
-    {
-        //RaycastHit raycastHit;
-        ray1 = new Ray(transform.position, transform.forward);
-        Debug.Log(ray1.direction);
-        Debug.DrawRay(transform.position,transform.forward * 100f,Color.red);
-        if (Input.GetMouseButtonDown(0))
-        {
-            Shot();
-        }
-    }
-    public void Shot()
+    public void Shoot()
     {
         if(CheckAmmoAmount())
-        {         
-            
+        {
+            ray1 = new Ray(transform.position, transform.forward);
             Instantiate(bullet, point.transform.position, bullet.transform.rotation);
-            //amountAmmo--;
+            amountAmmo--;
         }
     }
 

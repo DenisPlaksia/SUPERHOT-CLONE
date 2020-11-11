@@ -9,14 +9,13 @@ public class Enemy : MonoBehaviour, IDamage
     private bool canAttack = false;
 
     //test version
-    public GameObject bullet;
-    public GameObject gun;  
+    public Weapun weapun;
     public void Attack()
     {
         if(!canAttack)
         {
             canAttack = true;
-            Instantiate(bullet, gun.transform.position, transform.rotation);
+            weapun.Shoot();
             Invoke(nameof(ResetAttack), timeBetweenAttack);
         }
     }
