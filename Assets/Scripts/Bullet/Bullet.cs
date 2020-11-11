@@ -4,18 +4,20 @@
 public class Bullet : MonoBehaviour
 {
     private Rigidbody rb;
-    private float force = 25f;
-    void Start()
+    private float force = 20f;
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.right * force,ForceMode.Impulse);
+        BulletPush();
     }
+
+    private void BulletPush() => rb.AddForce(Weapun.Ray.direction * force, ForceMode.Impulse);
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.GetComponent<Player>() != null)
+        if (collision.gameObject.GetComponent<IDamage>() != null)
         {
-            collision.gameObject.GetComponent<Player>().GetDamage(100f);
+            collision.gameObject.GetComponent<IDamage>().GetDamage(100f);
         }
     }
 }

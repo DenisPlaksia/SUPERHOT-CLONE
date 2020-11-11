@@ -1,8 +1,23 @@
 ﻿using UnityEngine;
 
-public class Player : MonoBehaviour
+/* Denis Plaksia */
+public class Player : MonoBehaviour, IDamage
 {
     private float health = 100f;
+    public Weapun weapun;
+
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Attack();
+        }
+    }
+
+    private void Attack() => weapun.Shoot();
+    private void DestroyPlayer() => Destroy(gameObject);
+
 
     public void GetDamage(float damage)
     {
@@ -11,6 +26,4 @@ public class Player : MonoBehaviour
         if (health <= 0)
             DestroyPlayer();
     }
-
-    private void DestroyPlayer() => Destroy(gameObject);
 }
