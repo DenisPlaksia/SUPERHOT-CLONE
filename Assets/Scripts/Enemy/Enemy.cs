@@ -10,16 +10,18 @@ public class Enemy : MonoBehaviour, IDamage
 
     //test version
     public Weapun weapun;
+    private void ResetAttack() => canAttack = false;
+    private void DestroyEnemy() => Destroy(gameObject);
+
     public void Attack()
     {
-        if(!canAttack)
+        if (!canAttack)
         {
             canAttack = true;
             weapun.Shoot();
             Invoke(nameof(ResetAttack), timeBetweenAttack);
         }
     }
-    private void ResetAttack() => canAttack = false;
 
     public void GetDamage(float damage)
     {
@@ -30,7 +32,5 @@ public class Enemy : MonoBehaviour, IDamage
             DestroyEnemy();
         }
     }
-
-    private void DestroyEnemy() => Destroy(gameObject);
 
 }

@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
         float curSpeedY = walkingSpeed * Input.GetAxis("Horizontal");
 
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
-
         characterController.Move(moveDirection * Time.deltaTime);
 
         if (curSpeedX == 0 && curSpeedY == 0)

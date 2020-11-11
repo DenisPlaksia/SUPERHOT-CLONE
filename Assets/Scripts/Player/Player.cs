@@ -9,16 +9,13 @@ public class Player : MonoBehaviour, IDamage
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Attack();
         }
     }
 
-    private void Attack()
-    {
-        weapun.Shoot();
-    }
+    private void Attack() => weapun.Shoot();
     private void DestroyPlayer() => Destroy(gameObject);
 
 

@@ -409,7 +409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 451965501}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -747,9 +747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bb16504f1ace342b58dc8154ada4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountAmmo: 0
   bullet: {fileID: 240762535091401400, guid: c4cf40474cd7df047bad5efba52b5098, type: 3}
-  point: {fileID: 1757962289}
+  spawnPoint: {fileID: 1757962289}
 --- !u!1 &748865380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,9 +1154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bb16504f1ace342b58dc8154ada4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountAmmo: 0
   bullet: {fileID: 240762535091401400, guid: c4cf40474cd7df047bad5efba52b5098, type: 3}
-  point: {fileID: 451965500}
+  spawnPoint: {fileID: 451965500}
 --- !u!1 &1316292793
 GameObject:
   m_ObjectHideFlags: 0
@@ -4483,7 +4481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1757962290}
   m_Layer: 0
-  m_Name: TestGun
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
