@@ -3,22 +3,18 @@
 /* Denis Plaksia */
 public class Weapun : MonoBehaviour
 {
-    private static Ray ray;
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject spawnPoint;
 
+    //Ray for bullet direction
+    public static Ray Ray { get; private set; }
     public int AmountAmmo { get; private set; }
-    public static Ray Ray { get => ray; private set => ray = value; }
 
-    private void Start()
-    {
-        RandomAmountAmmo();
-    }
-    private void RandomAmountAmmo() => AmountAmmo = Random.Range(1, 8);
+    protected virtual void RandomAmountAmmo(int maxAmmoutAmmo) => AmountAmmo = Random.Range(1, maxAmmoutAmmo);
     
     private bool CheckAmmoAmount() => (AmountAmmo > 0) ? true : false;
 
-    public void Shoot()
+    public virtual void Shoot()
     {
         if (CheckAmmoAmount())
         {
