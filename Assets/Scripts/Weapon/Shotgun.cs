@@ -1,5 +1,5 @@
 ﻿
-public class Shotgun : Weapun
+public class Shotgun : Weapon
 {
     public int maxAmmoutAmmo = 8;
 

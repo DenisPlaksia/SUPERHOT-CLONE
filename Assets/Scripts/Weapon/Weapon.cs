@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /* Denis Plaksia */
-public class Weapun : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject spawnPoint;

@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour, IDamage
     private bool canAttack = false;
 
     //test version
-    public Weapun weapun;
+    public Weapon weapun;
     private void ResetAttack() => canAttack = false;
     private void DestroyEnemy() => Destroy(gameObject);
 

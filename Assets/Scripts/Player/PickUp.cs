@@ -7,43 +7,24 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
 
-    public float rayLength;
+    public float rayLength = 10f;
     public float throwingForce;
     public Transform equipPosition;
 
-    private bool isGrabbed = false;
-    private GameObject currentWeapon;
-    private GameObject tmp;
+    public bool isGrabbed = false;
+    private Weapon currentWeapon;
+    //public  Weapon tmp;
 
-    // Update is called once per frame
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, rayLength))
-            {
-                if (isGrabbed == false && hit.transform.tag == "Weapon")
-                {
-                    tmp = hit.transform.gameObject;
-                    GrabWeapon();
-                }
-
-                else if(isGrabbed == true)
-                    ThrowWeapon();
-            }
-        }
-    }
-
-    public void GrabWeapon()
+    public Weapon GrabWeapon(Weapon tmp)
     {
         currentWeapon = tmp;
         currentWeapon.transform.position = equipPosition.position;
         currentWeapon.transform.parent = equipPosition;
-        currentWeapon.transform.localEulerAngles = new Vector3(0, 180, 0);
+        currentWeapon.transform.localEulerAngles = new Vector3(0, 0, 0);
         currentWeapon.GetComponent<Rigidbody>().isKinematic = true;
 
         isGrabbed = true;
+        return currentWeapon;
     }
 
     public void ThrowWeapon()

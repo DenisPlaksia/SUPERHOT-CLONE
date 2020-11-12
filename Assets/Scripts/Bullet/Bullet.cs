@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
         BulletPush();
     }
 
-    private void BulletPush() => rb.AddForce(Weapun.Ray.direction * force, ForceMode.Impulse);
+    private void BulletPush() => rb.AddForce(Weapon.Ray.direction * force, ForceMode.Impulse);
 
     private void OnCollisionEnter(Collision collision)
     {
