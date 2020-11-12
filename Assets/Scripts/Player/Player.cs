@@ -4,9 +4,8 @@
 public class Player : MonoBehaviour, IDamage
 {
     private float health = 100f;
-    public  Weapon weapun;
+    private Weapon weapun;
     public PickUp pickUp;
-    public new Camera camera;
 
     private void Update()
     {
@@ -17,25 +16,29 @@ public class Player : MonoBehaviour, IDamage
 
         if (Input.GetMouseButtonDown(1))
         {
-            RaycastHit hit;
-            if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, pickUp.rayLength))
-            {
-                if (pickUp.isGrabbed == false && hit.transform.gameObject.GetComponent<Weapon>() != null)
-                {                    
-                    weapun = pickUp.GrabWeapon(hit.transform.gameObject.GetComponent<Weapon>());
-                }
-                else if (pickUp.isGrabbed == true)
-                {
-                    weapun = null;
-                    pickUp.ThrowWeapon();
-                }
-            }
+            TakeWeapon();
         }
     }
 
+    private void TakeWeapon()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, pickUp.rayLength))
+        {
+            if (pickUp.isGrabbed == false && hit.transform.gameObject.GetComponent<Weapon>() != null)
+            {
+                weapun = pickUp.GrabWeapon(hit.transform.gameObject.GetComponent<Weapon>());
+            }
+            else if (pickUp.isGrabbed == true)
+            {
+                weapun = null;
+                pickUp.ThrowWeapon();
+            }
+        }
+    }
     private void Attack()
     {
-        if(weapun == null)
+        if (weapun == null)
         {
 
         }
@@ -45,8 +48,6 @@ public class Player : MonoBehaviour, IDamage
         }
     }
     private void DestroyPlayer() => Destroy(gameObject);
-
-
     public void GetDamage(float damage)
     {
         health -= damage;
